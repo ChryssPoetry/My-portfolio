@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Franklin Nwafor | Hybrid Quantum-Classical Engineer</title>
     <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons (e.g., LinkedIn) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <script>
         tailwind.config = {
@@ -139,6 +141,14 @@
                 Chemist-turned-Data Engineer specializing in Hybrid Quantum-Classical Algorithms and Cloud Infrastructure. Designing the next generation of industrial intelligence.
             </p>
             
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
+                
+                <!-- Existing Contact Button -->
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border-2 border-brand-primary text-base font-medium rounded-full text-white hover:bg-brand-primary/10 transition-colors">
+                    Get in Touch
+                </a>
+            </div>
+
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12 text-center">
                 <div class="p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
                     <div class="text-2xl font-bold text-brand-secondary">3+</div>
@@ -372,19 +382,24 @@
             <h2 class="font-display text-2xl font-bold text-slate-800 mb-6">Ready to Accelerate Quantum Innovation</h2>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
                 <a href="mailto:franklynchrys@gmail.com" class="flex items-center text-slate-600 hover:text-brand-primary transition-colors">
-                    <span class="font-bold mr-2">Email:</span> franklynchrys@gmail.com
+                    <i class="fas fa-envelope mr-2"></i> franklynchrys@gmail.com
+                </a>
+                <span class="hidden md:inline text-slate-300">|</span>
+                <!-- NEW: LinkedIn Link -->
+                <a href="https://www.linkedin.com/in/franklin-nwafor-857025141/" target="_blank" class="flex items-center text-slate-600 hover:text-brand-primary transition-colors">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn Profile
                 </a>
                 <span class="hidden md:inline text-slate-300">|</span>
                 <span class="flex items-center text-slate-600">
-                    <span class="font-bold mr-2">Location:</span> Schorndorf, Germany
+                    <i class="fas fa-map-marker-alt mr-2"></i> Schorndorf, Germany
                 </span>
                 <span class="hidden md:inline text-slate-300">|</span>
                 <span class="flex items-center text-slate-600">
-                    <span class="font-bold mr-2">Status:</span> Open to Opportunities
+                    <i class="fas fa-briefcase mr-2"></i> Open to Opportunities
                 </span>
             </div>
             <p class="text-xs text-slate-400">
-                &copy; 2025 Franklin Nwafor. Designed with Tailwind CSS & Chart.js. No SVG or Mermaid used.
+                &copy; 2025 Franklin Nwafor. Designed with Tailwind CSS & Chart.js.
             </p>
         </div>
     </footer>
