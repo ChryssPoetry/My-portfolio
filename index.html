@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franklin Nwafor | Hybrid Quantum-Classical Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F172A',   // Slate 900
+                            primary: '#2563EB', // Blue 600 - Brilliant Blue
+                            secondary: '#06B6D4', // Cyan 500
+                            accent: '#7C3AED',  // Violet 600
+                            light: '#F8FAFC',   // Slate 50
+                            surface: '#FFFFFF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Styles for Chart Containers */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* Flow Diagram Connectors */
+        .flow-connector {
+            position: relative;
+        }
+        .flow-connector::after {
+            content: '↓';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #94A3B8;
+        }
+        @media (min-width: 768px) {
+            .flow-connector::after {
+                content: '→';
+                top: 50%;
+                right: -25px;
+                bottom: auto;
+                left: auto;
+                transform: translateY(-50%);
+            }
+            .last-connector::after {
+                content: none;
+            }
+        }
+        .last-connector::after {
+            content: none;
+        }
+
+        /* Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <!-- 
+        Palette Selection: Brilliant Blues / Energetic & Playful
+        Hex Codes: #2563EB (Blue), #06B6D4 (Cyan), #7C3AED (Violet)
+        Tone: Professional, Technical, Future-Forward
+        
+        Source Analysis:
+        - Candidate: Franklin Nwafor (Chemist -> Data Engineer -> Quantum Learner)
+        - Key Projects: 
+          1. Hybrid Quantum-Classical Fraud Detection (Imbalanced data, PennyLane, VQC)
+          2. IonsScribe (Battery Manufacturing, QML for NDT, Strategic Proposal)
+        - Goal: Showcase technical depth and strategic thinking.
+        
+        Visualizations chosen based on NO SVG constraint.
+        Diagrams implemented with HTML/CSS.
+        Charts implemented with Chart.js.
+    -->
+</head>
+<body class="bg-brand-light text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="font-display font-bold text-xl text-brand-primary tracking-tight">FN.Quantum</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#profile" class="hover:text-brand-primary transition-colors">Profile</a>
+                <a href="#skills" class="hover:text-brand-primary transition-colors">Expertise</a>
+                <a href="#fraud-project" class="hover:text-brand-primary transition-colors">Fraud Detection</a>
+                <a href="#ionsscribe" class="hover:text-brand-primary transition-colors">IonsScribe Strategy</a>
+            </div>
+            <a href="#contact" class="px-4 py-2 bg-brand-primary text-white rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="profile" class="relative pt-20 pb-32 overflow-hidden bg-brand-dark text-white">
+        <!-- Abstract Background Elements (CSS only) -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-accent rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-primary/20 border border-brand-primary/40 text-brand-secondary text-xs font-bold tracking-wider mb-6">AVAILABLE FOR RESEARCH & ENGINEERING ROLES</span>
+            <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Bridging Chemistry, Data,<br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-primary">and Quantum Computing</span>
+            </h1>
+            <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Chemist-turned-Data Engineer specializing in Hybrid Quantum-Classical Algorithms and Cloud Infrastructure. Designing the next generation of industrial intelligence.
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12 text-center">
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <div class="text-2xl font-bold text-brand-secondary">3+</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wide mt-1">Years Data Eng</div>
+                </div>
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <div class="text-2xl font-bold text-brand-secondary">BSc</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wide mt-1">Chemistry</div>
+                </div>
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <div class="text-2xl font-bold text-brand-secondary">ML</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wide mt-1">Engineering Diploma</div>
+                </div>
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                    <div class="text-2xl font-bold text-brand-secondary">80%</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wide mt-1">VQC Accuracy</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Skills & Expertise Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Introduction Text -->
+                <div>
+                    <h2 class="font-display text-3xl font-bold text-slate-800 mb-6">Interdisciplinary Competence</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        My expertise lies at the intersection of rigorous scientific method, robust data engineering, and emerging quantum technologies. I don't just build models; I build the pipelines that feed them and the infrastructure that scales them.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-brand-primary font-bold">Q</div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-slate-800">Quantum Stack</h3>
+                                <p class="text-sm text-slate-500">PennyLane, Qiskit, Qrisp, VQC Design, Angle Encoding</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center text-brand-secondary font-bold">D</div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-slate-800">Data Engineering</h3>
+                                <p class="text-sm text-slate-500">AWS, GCP, Apache Airflow, Docker, Kubernetes, Terraform</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center text-brand-accent font-bold">S</div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-slate-800">Scientific Foundation</h3>
+                                <p class="text-sm text-slate-500">Physical Chemistry, Molecular Simulation, Statistical Analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Radar Chart -->
+                <div class="bg-brand-light rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <h3 class="text-center font-bold text-slate-700 mb-4">Technical Proficiency Mix</h3>
+                    <div class="chart-container">
+                        <canvas id="skillsRadar"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-slate-400 mt-4">Self-assessed relative proficiency</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Project 1: Hybrid Quantum-Classical Fraud Detection -->
+    <section id="fraud-project" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-brand-accent font-bold tracking-wider text-xs uppercase">Project Showcase</span>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-800 mt-2 mb-4">Hybrid Quantum-Classical Fraud Detection</h2>
+                <p class="text-slate-600 text-lg">
+                    Applying Variational Quantum Circuits (VQC) to solve the challenge of extreme data imbalance (0.17% fraud rate) in financial transaction data.
+                </p>
+            </div>
+
+            <!-- Workflow Diagram (HTML/CSS) -->
+            <div class="mb-16">
+                <h3 class="text-xl font-bold text-slate-700 mb-8 text-center">The Hybrid Pipeline Architecture</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                    
+                    <!-- Step 1 -->
+                    <div class="flow-connector bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-primary">
+                        <div class="text-xs font-bold text-slate-400 uppercase mb-2">01. Classical Prep</div>
+                        <h4 class="font-bold text-slate-800 mb-2">Data Subsampling</h4>
+                        <p class="text-sm text-slate-500">Balanced subset created from 280k+ transactions. Features V1-V4 extracted and normalized to [0, 2π].</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flow-connector bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-secondary">
+                        <div class="text-xs font-bold text-slate-400 uppercase mb-2">02. Quantum Map</div>
+                        <h4 class="font-bold text-slate-800 mb-2">Angle Encoding</h4>
+                        <p class="text-sm text-slate-500">Classical features mapped to qubit rotation angles ($R_Y$). Embeds data into high-dimensional Hilbert space.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flow-connector bg-white p-6 rounded-xl shadow-md border-l-4 border-brand-accent">
+                        <div class="text-xs font-bold text-slate-400 uppercase mb-2">03. VQC Kernel</div>
+                        <h4 class="font-bold text-slate-800 mb-2">Ansatz & Measure</h4>
+                        <p class="text-sm text-slate-500">4-Qubit circuit with trainable weights. Entangling layers create correlations. Pauli-Z measurement yields prediction.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="last-connector bg-brand-dark text-white p-6 rounded-xl shadow-md border-l-4 border-slate-500">
+                        <div class="text-xs font-bold text-slate-400 uppercase mb-2">04. Optimization</div>
+                        <h4 class="font-bold text-white mb-2">Hybrid Loop</h4>
+                        <p class="text-sm text-slate-300">Classical Adagrad optimizer updates quantum weights based on MSE Loss gradient. 50 Epochs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Charts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Cost History Chart -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-end mb-4">
+                        <div>
+                            <h3 class="font-bold text-slate-800">Training Stability</h3>
+                            <p class="text-sm text-slate-500">Cost Function (MSE) over 50 Epochs</p>
+                        </div>
+                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-md font-bold"> converged</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="costChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-4 text-center">Note the volatility typical of small-batch quantum simulation, trending downwards.</p>
+                </div>
+
+                <!-- Accuracy Comparison Chart -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-end mb-4">
+                        <div>
+                            <h3 class="font-bold text-slate-800">Comparative Performance</h3>
+                            <p class="text-sm text-slate-500">Test Accuracy on Non-Linear Data</p>
+                        </div>
+                        <span class="text-xs bg-brand-primary/10 text-brand-primary px-2 py-1 rounded-md font-bold">+86% Improvement</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="accuracyChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-4 text-center">VQC outperforms linear baseline by effectively separating complex defect signatures.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Project 2: IonsScribe Strategy -->
+    <section id="ionsscribe" class="py-20 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#2563EB 1px, transparent 1px); background-size: 30px 30px;"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- Text Content -->
+                <div>
+                    <span class="text-brand-secondary font-bold tracking-wider text-xs uppercase">Strategic Concept</span>
+                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-6 mt-2">IonsScribe: Quantum-Enabled Battery QC</h2>
+                    <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                        A proposal for the German High-Tech Agenda (HTAD). IonsScribe utilizes Quantum Machine Learning to achieve <strong>PPM-level quality assurance</strong> in Gigafactories by detecting subtle, non-linear defect signatures in battery electrodes that classical ML misses.
+                    </p>
+                    
+                    <div class="bg-white/10 rounded-xl p-6 backdrop-blur-md border border-white/10 mb-8">
+                        <h4 class="font-bold text-brand-secondary mb-2">The ROI Proposition</h4>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-start">
+                                <span class="mr-2 text-brand-primary">✓</span>
+                                <span><strong>Predictive Fingerprinting:</strong> Identifying micro-defects before cell assembly.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2 text-brand-primary">✓</span>
+                                <span><strong>Functional Safety:</strong> Reducing thermal runaway risk via 100% inline inspection.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2 text-brand-primary">✓</span>
+                                <span><strong>Speed:</strong> Inference &lt; 1s per cell using Hybrid optimization.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Hardware Goals Table/Grid -->
+                <div class="space-y-6">
+                    <h3 class="font-bold text-white text-xl">Required Quantum Infrastructure (5-Year Plan)</h3>
+                    
+                    <div class="grid gap-4">
+                        <div class="bg-brand-primary/20 border border-brand-primary/30 p-5 rounded-lg hover:bg-brand-primary/30 transition-colors">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-brand-secondary">Goal G1</span>
+                                <span class="text-xs bg-brand-secondary/20 text-brand-secondary px-2 py-1 rounded">Standardization</span>
+                            </div>
+                            <p class="text-sm font-semibold mb-1">Standardized QML Access APIs</p>
+                            <p class="text-xs text-slate-400">Low-latency protocols for real-time VQC inference on industrial floors.</p>
+                        </div>
+
+                        <div class="bg-brand-primary/20 border border-brand-primary/30 p-5 rounded-lg hover:bg-brand-primary/30 transition-colors">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-brand-secondary">Goal G2</span>
+                                <span class="text-xs bg-brand-secondary/20 text-brand-secondary px-2 py-1 rounded">Scale</span>
+                            </div>
+                            <p class="text-sm font-semibold mb-1">30+ Logical Qubits</p>
+                            <p class="text-xs text-slate-400">Required to encode full spectral sensor signatures without data loss.</p>
+                        </div>
+
+                        <div class="bg-brand-primary/20 border border-brand-primary/30 p-5 rounded-lg hover:bg-brand-primary/30 transition-colors">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-brand-secondary">Goal G3</span>
+                                <span class="text-xs bg-brand-secondary/20 text-brand-secondary px-2 py-1 rounded">Performance</span>
+                            </div>
+                            <p class="text-sm font-semibold mb-1">Mid-Circuit Measurement</p>
+                            <p class="text-xs text-slate-400">Enable adaptive dynamic circuits for rapid classification.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-white py-12 border-t border-slate-200">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-display text-2xl font-bold text-slate-800 mb-6">Ready to Accelerate Quantum Innovation</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
+                <a href="mailto:franklynchrys@gmail.com" class="flex items-center text-slate-600 hover:text-brand-primary transition-colors">
+                    <span class="font-bold mr-2">Email:</span> franklynchrys@gmail.com
+                </a>
+                <span class="hidden md:inline text-slate-300">|</span>
+                <span class="flex items-center text-slate-600">
+                    <span class="font-bold mr-2">Location:</span> Schorndorf, Germany
+                </span>
+                <span class="hidden md:inline text-slate-300">|</span>
+                <span class="flex items-center text-slate-600">
+                    <span class="font-bold mr-2">Status:</span> Open to Opportunities
+                </span>
+            </div>
+            <p class="text-xs text-slate-400">
+                &copy; 2025 Franklin Nwafor. Designed with Tailwind CSS & Chart.js. No SVG or Mermaid used.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chart Configuration Script -->
+    <script>
+        // -----------------------------------------------------------
+        // UTILITY: Label Wrapping (16 Char Logic)
+        // -----------------------------------------------------------
+        function wrapLabels(labels) {
+            return labels.map(label => {
+                if (label.length <= 16) return label;
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = words[0];
+
+                for (let i = 1; i < words.length; i++) {
+                    if (currentLine.length + 1 + words[i].length <= 16) {
+                        currentLine += ' ' + words[i];
+                    } else {
+                        lines.push(currentLine);
+                        currentLine = words[i];
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            });
+        }
+
+        // -----------------------------------------------------------
+        // COMMON CONFIG: Tooltip Multiline Handler
+        // -----------------------------------------------------------
+        const commonPlugins = {
+            legend: {
+                labels: {
+                    font: { family: "'Inter', sans-serif", size: 12 },
+                    color: '#475569'
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                padding: 12,
+                cornerRadius: 8,
+                titleFont: { family: "'Inter', sans-serif", size: 13, weight: 'bold' },
+                bodyFont: { family: "'Inter', sans-serif", size: 12 },
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        } else {
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        // -----------------------------------------------------------
+        // CHART 1: Skills Radar
+        // -----------------------------------------------------------
+        const radarCtx = document.getElementById('skillsRadar').getContext('2d');
+        const radarData = {
+            labels: wrapLabels([
+                'Data Engineering (AWS/GCP)', 
+                'Quantum Computing (Qiskit/PennyLane)', 
+                'Machine Learning Engineering', 
+                'Scientific Simulation', 
+                'DevOps & IaC'
+            ]),
+            datasets: [{
+                label: 'Proficiency',
+                data: [90, 75, 85, 80, 85], // Mock proficiency scores
+                fill: true,
+                backgroundColor: 'rgba(6, 182, 212, 0.2)', // Cyan transparent
+                borderColor: '#06B6D4',
+                pointBackgroundColor: '#2563EB',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#2563EB'
+            }]
+        };
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: radarData,
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#E2E8F0' },
+                        grid: { color: '#E2E8F0' },
+                        pointLabels: {
+                            font: { size: 11, family: "'Inter', sans-serif", weight: '600' },
+                            color: '#475569'
+                        },
+                        ticks: { display: false, max: 100 }
+                    }
+                },
+                plugins: commonPlugins
+            }
+        });
+
+        // -----------------------------------------------------------
+        // CHART 2: Cost History (Line)
+        // -----------------------------------------------------------
+        const costCtx = document.getElementById('costChart').getContext('2d');
+        const costData = {
+            labels: ['Epoch 5', 'Epoch 10', 'Epoch 15', 'Epoch 20', 'Epoch 25', 'Epoch 30', 'Epoch 35', 'Epoch 40', 'Epoch 45', 'Epoch 50'],
+            datasets: [{
+                label: 'Mean Squared Error',
+                data: [0.72, 0.68, 0.55, 0.62, 0.51, 0.49, 0.48, 0.45, 0.52, 0.43], // Volatile but trending down
+                borderColor: '#7C3AED', // Violet
+                backgroundColor: 'rgba(124, 58, 237, 0.1)',
+                borderWidth: 2,
+                tension: 0.3, // Curve slightly
+                fill: true,
+                pointRadius: 4,
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#7C3AED'
+            }]
+        };
+        new Chart(costCtx, {
+            type: 'line',
+            data: costData,
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: { color: '#F1F5F9' },
+                        title: { display: true, text: 'Cost (MSE)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                },
+                plugins: commonPlugins
+            }
+        });
+
+        // -----------------------------------------------------------
+        // CHART 3: Accuracy Comparison (Bar)
+        // -----------------------------------------------------------
+        const accCtx = document.getElementById('accuracyChart').getContext('2d');
+        const accData = {
+            labels: wrapLabels(['Classical Linear Model', 'Hybrid Quantum VQC']),
+            datasets: [{
+                label: 'Test Accuracy',
+                data: [0.43, 0.80],
+                backgroundColor: ['#94A3B8', '#2563EB'], // Grey for classical, Blue for Quantum
+                borderRadius: 8,
+                barThickness: 50
+            }]
+        };
+        new Chart(accCtx, {
+            type: 'bar',
+            data: accData,
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1.0,
+                        grid: { color: '#F1F5F9' },
+                        title: { display: true, text: 'Accuracy Score' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                },
+                plugins: commonPlugins
+            }
+        });
+
+    </script>
+</body>
+</html>
